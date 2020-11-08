@@ -1,0 +1,62 @@
+.header-div {
+  text-align: center;
+  background: lightgray;
+  padding: 20px;
+}
+
+.menu-div {
+  text-align: center;
+  background: #a08e78;
+  min-height: 43px;
+}
+
+.menu-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-div {
+  background: #9db1aa;
+  min-height: 360px;
+}
+
+.message-row {
+  background: lightgray;
+}
+
+.active {
+  font-weight: bold;
+}
+
+textarea {
+  width: 100%;
+}
+
+input[type="text"] {
+  width: 100%;
+}
+
+form {
+  width: 100%;
+}
+
+a {
+  color: black;
+}
+
+.error-div {
+  background: white;
+  position: absolute;
+  top: 2px;
+  color: red;
+  right: 21px;
+}
+
+.error-border {
+  border: 2px solid red;
+}
+
+.valid-border {
+  border: 1px solid black;
+}
