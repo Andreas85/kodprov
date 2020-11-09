@@ -28,5 +28,4 @@ if ($messages->num_rows) {
 <?php
 }
 ?>
-
 </div>

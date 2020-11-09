@@ -29,7 +29,7 @@ if (isset($_GET['del'])) {
     $result = $conn->query($sql);
 }
 
-if ($_GET['page'] == 'messages') {
+if (isset($_GET['page']) && $_GET['page'] == 'messages') {
 
     $sql = "
         SELECT
@@ -72,18 +72,18 @@ if ($_GET['page'] == 'messages') {
       </div>
       <div class="row menu-div">
         <div class="col-md-4 menu-col">
-          <a href="index.php?page=home" class="<?php echo ($_GET['page'] == '' || $_GET['page'] == 'home') ? 'active' : '' ?>">HOME</a>
+          <a href="index.php?page=home" class="<?php echo (!isset($_GET['page']) || $_GET['page'] == '' || $_GET['page'] == 'home') ? 'active' : '' ?>">HOME</a>
         </div>
         <div class="col-md-4 menu-col">
-          <a href="index.php?page=messages" class="<?php echo ($_GET['page'] == 'messages') ? 'active' : '' ?>">MESSAGES</a>
+          <a href="index.php?page=messages" class="<?php echo (isset($_GET['page']) && $_GET['page'] == 'messages') ? 'active' : '' ?>">MESSAGES</a>
         </div>
         <div class="col-md-4 menu-col">
-          <a href="index.php?page=contact" class="<?php echo ($_GET['page'] == 'contact') ? 'active' : '' ?>">CONTACT</a>
+          <a href="index.php?page=contact" class="<?php echo (isset($_GET['page']) && $_GET['page'] == 'contact') ? 'active' : '' ?>">CONTACT</a>
         </div>
       </div>
       <div class="row content-div">
         <?php
-          if ($_GET['page'] == '' || $_GET['page'] == 'home') {
+          if (!isset($_GET['page']) || $_GET['page'] == '' || $_GET['page'] == 'home') {
             include 'pages/home.php';
           } elseif ($_GET['page'] == 'messages') {
             include 'pages/messages.php';
