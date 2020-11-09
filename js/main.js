@@ -1,6 +1,24 @@
 $(document).ready(function(){
+
+    $(window).on('popstate', function(e) {
+        var location = e.state;
+
+        if (location != null) {
+            $('[data-home-container]').hide();
+            $('[data-messages-container]').hide();
+            $('[data-contact-container]').hide();
+
+            $('[data-' + location + '-container]').show();
+        } else {
+            window.history.back();
+        }
+    });
+
     $('[data-menu-link]').on('click', function(e){
         e.preventDefault();
+
+        $('[data-menu-link]').removeClass('active');
+        $(this).addClass('active');
 
         switch ($(this).data('menu-link')) {
             case 'home':
@@ -39,7 +57,6 @@ $(document).ready(function(){
         var message_row_template = '';
 
         if (messages !== null && messages.length !== 0) {
-            console.log('not null');
             for (var a=0; a<messages.length; a++) {
                 message_row_template = $('[data-message-row-template]').html();
                 message_row_template = message_row_template.replace("$", messages[a][0]);
@@ -66,8 +83,6 @@ $(document).ready(function(){
             populate_messages();
         }
     });
-
-    populate_messages();
 
     function validate_email(email) {
         if( /(.+)@(.+){2,}\.(.+){2,}/.test(email) ){
@@ -132,4 +147,6 @@ $(document).ready(function(){
         $('[data-message-sent-confirmation]').show();
         setTimeout(function(){ $('[data-message-sent-confirmation]').hide() }, 3000);
     });
+
+    populate_messages();
 });

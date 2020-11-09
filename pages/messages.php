@@ -1,5 +1,4 @@
-<div class="container mt-2 pl-5 pr-5 hidden" data-messages-container>
-</div>
+<div class="container mt-2 pl-5 pr-5 hidden" data-messages-container></div>
 
 <div class="hidden" data-message-row-template>
   <div class="row message-row mb-2">

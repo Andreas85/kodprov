@@ -13,22 +13,6 @@
       crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 
-    <script>
-        window.addEventListener('popstate', function(e) {
-            var location = e.state;
-
-            if (location != null) {
-                $('[data-home-container]').hide();
-                $('[data-messages-container]').hide();
-                $('[data-contact-container]').hide();
-
-                $('[data-' + location + '-container]').show();
-            } else {
-                window.history.back();
-            }
-        });
-    </script>
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -37,13 +21,12 @@
   </head>
   <body>
     <div class="container mt-4">
-      <!-- Content here -->
       <div class="row">
         <div class="col-12 header-div"><h1>Andreas kodprov</h1></div>
       </div>
       <div class="row menu-div">
         <div class="col-md-4 menu-col">
-          <a href="" data-menu-link="home">HOME</a>
+          <a href="" data-menu-link="home" class="active">HOME</a>
         </div>
         <div class="col-md-4 menu-col">
           <a href="" data-menu-link="messages">MESSAGES</a>
