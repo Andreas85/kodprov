@@ -1,48 +1,3 @@
-<?php
-include '../../config/database_kodprov.php';
-
-if (isset($_POST['email']) || isset($_POST['message'])) {
-
-    // Todo: Add validation
-
-    $sql = "
-        INSERT INTO
-            messages (email, message)
-        VALUES
-            (
-              '" . $conn->real_escape_string($_POST['email']) . "',
-              '" . $conn->real_escape_string($_POST['message']) . "'
-            )";
-
-    $result = $conn->query($sql);
-
-}
-
-if (isset($_GET['del'])) {
-
-    $sql = "
-        DELETE FROM
-            messages
-        WHERE
-            id = '" . $conn->real_escape_string($_GET['del']) . "'";
-
-    $result = $conn->query($sql);
-}
-
-if ($_GET['page'] == 'messages') {
-
-    $sql = "
-        SELECT
-            id,
-            email,
-            message
-        FROM
-            messages";
-
-    $messages = $conn->query($sql);
-}
-
-?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -58,6 +13,22 @@ if ($_GET['page'] == 'messages') {
       crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 
+    <script>
+        window.addEventListener('popstate', function(e) {
+            var location = e.state;
+
+            if (location != null) {
+                $('[data-home-container]').hide();
+                $('[data-messages-container]').hide();
+                $('[data-contact-container]').hide();
+
+                $('[data-' + location + '-container]').show();
+            } else {
+                window.history.back();
+            }
+        });
+    </script>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -72,24 +43,20 @@ if ($_GET['page'] == 'messages') {
       </div>
       <div class="row menu-div">
         <div class="col-md-4 menu-col">
-          <a href="index.php?page=home" class="<?php echo ($_GET['page'] == '' || $_GET['page'] == 'home') ? 'active' : '' ?>">HOME</a>
+          <a href="" data-menu-link="home">HOME</a>
         </div>
         <div class="col-md-4 menu-col">
-          <a href="index.php?page=messages" class="<?php echo ($_GET['page'] == 'messages') ? 'active' : '' ?>">MESSAGES</a>
+          <a href="" data-menu-link="messages">MESSAGES</a>
         </div>
         <div class="col-md-4 menu-col">
-          <a href="index.php?page=contact" class="<?php echo ($_GET['page'] == 'contact') ? 'active' : '' ?>">CONTACT</a>
+          <a href="" data-menu-link="contact">CONTACT</a>
         </div>
       </div>
       <div class="row content-div">
         <?php
-          if ($_GET['page'] == '' || $_GET['page'] == 'home') {
             include 'pages/home.php';
-          } elseif ($_GET['page'] == 'messages') {
             include 'pages/messages.php';
-          } elseif ($_GET['page'] == 'contact') {
             include 'pages/contact.php';
-          }
         ?>
       </div>
     </div>

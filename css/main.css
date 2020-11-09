@@ -45,10 +45,14 @@ a {
   color: black;
 }
 
+a:hover {
+  color: black;
+}
+
 .error-div {
   background: white;
   position: absolute;
-  top: 2px;
+  top: 3px;
   color: red;
   right: 21px;
 }
@@ -59,4 +63,8 @@ a {
 
 .valid-border {
   border: 1px solid black;
+}
+
+.hidden {
+    display: none;
 }

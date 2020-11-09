@@ -1,32 +1,26 @@
-<div class="container mt-2 pl-5 pr-5">
-<?php
-if ($messages->num_rows) {
-  while ($row = $messages->fetch_assoc()) {
-?>
+<div class="container mt-2 pl-5 pr-5 hidden" data-messages-container>
+</div>
+
+<div class="hidden" data-message-row-template>
   <div class="row message-row mb-2">
     <div class="col-md-11">
       <div class="row">
-        <div class="col-12"><b><?php echo $row['email']; ?></b></div>
+        <div class="col-12"><b>$</b></div>
       </div>
       <div class="row">
-        <div class="col-12"><?php echo $row['message']; ?></div>
+        <div class="col-12">$</div>
       </div>
     </div>
     <div class="col-md-1 menu-col">
-      <a href="index.php?page=messages&del=<?php echo $row['id'];?>" class="delete-message">Delete</a>
+      <a href="" data-delete-message="$">Delete</a>
     </div>
   </div>
-<?php
-  }
-} else {
-?>
+</div>
+
+<div class="hidden" data-no-messages-template>
   <div class="row mb-2">
     <div class="col-12">
       No messages.
     </div>
   </div>
-<?php
-}
-?>
-
 </div>
