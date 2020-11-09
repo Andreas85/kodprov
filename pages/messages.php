@@ -6,10 +6,10 @@ if ($messages->num_rows) {
   <div class="row message-row mb-2">
     <div class="col-md-11">
       <div class="row">
-        <div class="col-12"><b><?php echo $row['email']; ?></b></div>
+        <div class="col-12"><b><?php echo htmlspecialchars($row['email']); ?></b></div>
       </div>
       <div class="row">
-        <div class="col-12"><?php echo $row['message']; ?></div>
+        <div class="col-12"><?php echo htmlspecialchars($row['message']); ?></div>
       </div>
     </div>
     <div class="col-md-1 menu-col">
