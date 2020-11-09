@@ -57,6 +57,7 @@ if ($_GET['page'] == 'messages') {
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" 
       crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
 
     <link
       rel="stylesheet"
@@ -66,7 +67,6 @@ if ($_GET['page'] == 'messages') {
   </head>
   <body>
     <div class="container mt-4">
-      <!-- Content here -->
       <div class="row">
         <div class="col-12 header-div"><h1>Andreas kodprov</h1></div>
       </div>

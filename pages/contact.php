@@ -1,6 +1,3 @@
-<script src="js/contact.js"></script>
-
-
 <div class="container mt-2">
   <div class="row">
     <form action="index.php?page=contact" method="post" name="contact-form" data-contact-form>
